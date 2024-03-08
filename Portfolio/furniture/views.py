@@ -70,3 +70,6 @@ def logoutUser(request):
     logout(request)
     messages.success(request, ('You have been logged out!'))
     return redirect('content')
+
+def home(request):
+    return render(request, 'store/home.html')
