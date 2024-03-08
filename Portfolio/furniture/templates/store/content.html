@@ -1,0 +1,46 @@
+{% extends "store/base.html" %}
+{% load static %}.
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <div class="row">
+        {% for item in pro %}
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{ item.image.url }}" alt="">
+            <div class="box-element product">
+                <h6><strong>{{item.name}}</strong></h6>
+                <hr />
+                <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                <a href="#" class="btn btn-outline-success">View</a>
+                <h4 style="display: inline-block; float: right">{{ item.price }}</h4>
+                <h6>{{ item.describtion }}</h6>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% else %}
+
+    <div class="row">
+        {% for item in pro %}
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{ item.image.url }}" alt="">
+            <div class="box-element product">
+                <h6><strong>{{item.name}}</strong></h6>
+                <hr />
+                <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                <a href="#" class="btn btn-outline-success">View</a>
+                <h4 style="display: inline-block; float: right">{{ item.price }}</h4>
+                <h6>{{ item.describtion }}</h6>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="viewMore col-lg-4">
+        <a href="{% url 'register' %}" class="btn" type="betton">View More</a>
+    </div>
+
+{% endif %}
+
+{% endblock content %} 
