@@ -1,37 +1,34 @@
 {% load static %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mai">
-        <a class="navbar-brand" href="{% url 'content' %}">Light</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mNavbar fixed-top">  
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'content' %}">HojiGari Furniture</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
         </button>
-  
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'content' %}">Store <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-          
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 container">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><hr class="dropdown-divider" /></li>
-                        <li class="dropdown-item"><a class="btn" type="button" href="{% url 'content' %}">All</a></li>
-                        
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="{% url 'content' %}">All</a></li>
+                        <li><hr class="dropdown-divider"></li>
+
                         {% for cate in categories %}
-                        <li class="dropdown-item">
-                            <a href="{% url 'content' %}?category={{ cate.name }}" class="btn btn-outline-secondary add-btn" type="button">{{ cate.name }}</a>
-                        </li>
+                        <li><a class="dropdown-item" href="{% url 'content' %}?category={{ cate.name }}">{{ cate.name }}</a></li>
                         {% endfor %}
-
-                      </ul>
-                </li>
-            </ul>
-          </div>
-
-          <div class="form-inline my-2 my-lg-0">
-              {% if user.is_authenticated %}
+                    </ul>
+                    </li>
+                    
+                </ul>
+        </div>
+        <div class="form-inline my-2 my-lg-0">
+            {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}"class="btn btn-warning">Logout</a>
                 <a href="{% url 'cart' %}">
                   <img  id="cart-icon" src="{% static 'images/cart.png' %}">
@@ -40,7 +37,6 @@
              {% else %}
              <a href="{% url 'login' %}"class="btn btn-warning">Login</a>
              {% endif %}
-
-         </div>
         </div>
-      </nav>
+    </div>
+</nav>
