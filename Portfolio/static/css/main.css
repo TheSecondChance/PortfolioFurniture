@@ -1,5 +1,6 @@
 body{
 	background-color: hsl(0, 0%, 98%);
+	padding-top: 70px;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -105,9 +106,10 @@ h1,h2,h3,h4,h5,h6{
 	display: none!important;
 }
 
-.mai {
+.mNavbar {
 	background-image: linear-gradient(to right, #6f42c1, #6e1af6,#7220f6, #6610f2, #622dc3, #6610f2, #6610f2)!important;
 	color: #fff!important;
+	padding: 15px;
 }
 
 /* form section */
@@ -128,4 +130,10 @@ h1,h2,h3,h4,h5,h6{
 	margin-top: 50px;
 	padding-bottom: 100px;
 	text-align: right;
+}
+
+/* home style  */
+.adn {
+	color: red!important;
+	font-size: 70px!important;
 }
